@@ -15,8 +15,8 @@ function renderTotal() {
     for (let i = 0; i < cartItems.length; i++) {
       total += JSON.parse(cartItems[i].FinalPrice);
     }
+    document.querySelector(".cart-total").innerHTML += total;
   }
-  document.querySelector(".cart-total").innerHTML += total;
 }
 
 //Function to render cart content, backlog1
