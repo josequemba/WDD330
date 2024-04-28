@@ -27,9 +27,21 @@ function renderCartContents() {
   if (cartHasItems()) {
     for (let i = 0; i < cartItems.length; i++) {
       const htmlItems = cartItemTemplate(cartItems[i]);
+      const delButton = deleteButton(cartItems[i]);
       document.querySelector(".product-list").innerHTML += htmlItems;
+      document.querySelector(".product-list").innerHTML += delButton;
     }
   }
+}
+
+//Delete button function
+function deleteButton(item) {
+  let deleteButton = `<span id="${item.Id}">❌</span>`;
+  deleteButton.addEventListener("click", deleteItem(item));
+}
+
+function deleteItem(item) {
+  localStorage.removeItem(item);
 }
 
 function cartItemTemplate(item) {
