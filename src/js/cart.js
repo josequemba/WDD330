@@ -1,4 +1,4 @@
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, hideElement, showElement } from "./utils.mjs";
 
 //This function return true if the Local Storage has items
 function cartHasItems() {
@@ -12,11 +12,13 @@ function renderTotal() {
   const cartItems = getLocalStorage("so-cart");
   let total = 0;
   if (cartHasItems()) {
+    showElement(".cart-total");
     for (let i = 0; i < cartItems.length; i++) {
       total += JSON.parse(cartItems[i].FinalPrice);
     }
     document.querySelector(".cart-total").innerHTML += total;
   }
+  hideElement(".cart-total");
 }
 
 //Function to render cart content, backlog1
