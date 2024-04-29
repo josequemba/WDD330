@@ -98,10 +98,10 @@ button {
 
 /* Cart icon styles */
 .hide {
-  visibility : hidden;
+  visibility: hidden;
 }
 
-.show{
+.show {
   visibility: visible;
 }
 

@@ -67,4 +67,3 @@ function cartItemTemplate(item) {
 
 renderCartContents();
 renderTotal();
-
