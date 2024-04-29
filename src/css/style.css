@@ -97,6 +97,14 @@ button {
 /* End utility classes */
 
 /* Cart icon styles */
+.hide {
+  visibility: hidden;
+}
+
+.show {
+  visibility: visible;
+}
+
 .cart {
   padding-top: 1em;
   position: relative;
