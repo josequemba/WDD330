@@ -27,21 +27,23 @@ function renderCartContents() {
   if (cartHasItems()) {
     for (let i = 0; i < cartItems.length; i++) {
       const htmlItems = cartItemTemplate(cartItems[i]);
-      const delButton = deleteButton(cartItems[i]);
       document.querySelector(".product-list").innerHTML += htmlItems;
-      document.querySelector(".product-list").innerHTML += delButton;
     }
+    addEventListener(cartItems);
   }
 }
 
-//Delete button function
-function deleteButton(item) {
-  let deleteButton = `<span id="${item.Id}">❌</span>`;
-  deleteButton.addEventListener("click", deleteItem(item));
-}
-
-function deleteItem(item) {
-  localStorage.removeItem(item);
+function addEventListener() {
+  let index = 0;
+  let spans = document.querySelectorAll("span");
+  const cart = getLocalStorage("so-cart");
+  for (let i = 0; i < spans.length; i++) {
+    spans[i].addEventListener(
+      "click",
+      () => (index = cart.map((e) => e.Id).indexOf(spans[i].id)),
+    );
+  }
+  return index;
 }
 
 function cartItemTemplate(item) {
@@ -58,9 +60,11 @@ function cartItemTemplate(item) {
     <p class="cart-card__color">${item.Colors[0].ColorName}</p>
     <p class="cart-card__quantity">qty: 1</p>
     <p class="cart-card__price">$${item.FinalPrice}</p>
+    <span id=${item.Id}> ❌ </span>
   </li>`;
   return newItem;
 }
 
 renderCartContents();
 renderTotal();
+
