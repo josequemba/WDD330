@@ -11,9 +11,9 @@ export function getLocalStorage(key) {
 }
 // save data to local storage
 export function setLocalStorage(key, data) {
-    let currentData = getLocalStorage(key) || [];
-    currentData.push(data);
-    localStorage.setItem(key, JSON.stringify(currentData));
+  let currentData = getLocalStorage(key) || [];
+  currentData.push(data);
+  localStorage.setItem(key, JSON.stringify(currentData));
 }
 // set a listener for both touchend and click
 export function setClick(selector, callback) {
@@ -24,13 +24,19 @@ export function setClick(selector, callback) {
   qs(selector).addEventListener("click", callback);
 }
 
-
 //function to hide elements, id = html class to hide
-export function hideElement(htmlClass){
+export function hideElement(htmlClass) {
   document.querySelector(htmlClass).classList.add("hide");
 }
 
 //function to show elements, id = html class to hide
-export function showElement(htmlClass){
+export function showElement(htmlClass) {
   document.querySelector(htmlClass).classList.add("show");
+}
+
+export function getParams(param) {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const product = urlParams.get("product");
+  return product;
 }
