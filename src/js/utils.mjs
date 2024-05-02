@@ -11,9 +11,7 @@ export function getLocalStorage(key) {
 }
 // save data to local storage
 export function setLocalStorage(key, data) {
-    let currentData = getLocalStorage(key) || [];
-    currentData.push(data);
-    localStorage.setItem(key, JSON.stringify(currentData));
+  localStorage.setItem(key, JSON.stringify(data));
 }
 // set a listener for both touchend and click
 export function setClick(selector, callback) {
@@ -34,3 +32,11 @@ export function hideElement(htmlClass){
 export function showElement(htmlClass){
   document.querySelector(htmlClass).classList.add("show");
 }
+
+//product that we want to show the details for
+export function getParams(param){
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const product = urlParams.get(param)
+  return product;
+}; 
