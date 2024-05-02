@@ -12,7 +12,6 @@ export default class ProductDetails {
         try {
             // use our datasource to get the details for the current product. findProductById will return a promise! use await or .then() to process it
             this.product = await this.dataSource.findProductById(this.productId);
-            console.log("Fetched product:", this.product); // Log the fetched product to inspect its structure
             // once we have the product details we can render out the HTML
             this.renderProductDetails("main");
             // once the HTML is rendered we can add a listener to Add to Cart button

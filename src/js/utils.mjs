@@ -10,9 +10,32 @@ export function getLocalStorage(key) {
   return JSON.parse(localStorage.getItem(key));
 }
 // save data to local storage
-export function setLocalStorage(key, data) {
-  localStorage.setItem(key, JSON.stringify(data));
+export function setLocalStorage(key, newData) {
+  try {
+    // Get existing data from local storage
+    let existingData = localStorage.getItem(key);
+
+    // Parse existing data from JSON format
+    existingData = existingData ? JSON.parse(existingData) : [];
+
+    // If existingData is not an array, convert it into an array
+    if (!Array.isArray(existingData)) {
+      existingData = [existingData]; // Convert to array with existing data
+    }
+
+    // Append the new data to the existing data
+    existingData.push(newData);
+
+    // Save the updated data back to local storage
+    localStorage.setItem(key, JSON.stringify(existingData));
+  } catch (error) {
+    console.error('Error in setLocalStorage:', error);
+  }
 }
+// save data to local storage
+/* export function setLocalStorage(key, data) {
+  localStorage.setItem(key, JSON.stringify(data));
+} */
 // set a listener for both touchend and click
 export function setClick(selector, callback) {
   qs(selector).addEventListener("touchend", (event) => {
