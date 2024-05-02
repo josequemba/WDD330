@@ -50,7 +50,7 @@ function readableData(items) {
   return filteredItems;
 }
 
-//temple
+//templete
 function cartItemTemplate(item) {
   let newItem = `<li class="cart-card divider">
     <a href="#" class="cart-card__image">
