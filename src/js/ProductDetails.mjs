@@ -29,6 +29,7 @@ export default class ProductDetails {
   }
 }
 
+// MEGC - Added previous price with strikethrough (line 43), and discount on (line 44)
 function productDetailsTemplate(product) {
   return `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
     <h2 class="divider">${product.NameWithoutBrand}</h2>
@@ -38,6 +39,10 @@ function productDetailsTemplate(product) {
       alt="${product.NameWithoutBrand}"
     />
     <p class="product-card__price">$${product.FinalPrice}</p>
+
+    <p class="product-card__originalprice"> <span style="text-decoration: line-through;"> Was: $${product.SuggestedRetailPrice}</p>
+    <p class="product-card__discount">Discount: $${(product.SuggestedRetailPrice - product.FinalPrice).toFixed(2)}</p>
+
     <p class="product__color">${product.Colors[0].ColorName}</p>
     <p class="product__description">
     ${product.DescriptionHtmlSimple}
