@@ -32,5 +32,8 @@
     "last 3 opera versions",
     "last 3 ios_saf versions",
     "last 3 safari versions"
-  ]
+  ],
+  "dependencies": {
+    "@vitejs/plugin-react": "^4.2.1"
+  }
 }
