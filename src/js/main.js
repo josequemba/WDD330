@@ -5,3 +5,4 @@ const dataSource = new ProductData("tents");
 const element = document.querySelector(".product-list");
 const listElement = new ProductListing(dataSource, "Tents", element);
 listElement.init();
+
