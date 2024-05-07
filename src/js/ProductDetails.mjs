@@ -29,7 +29,7 @@ export default class ProductDetails {
   }
 }
 
-// MEGC - Added previous price with strikethrough (line 43), and discount on (line 44)
+// MEGC - Added previous price with strikethrough (line 43), and discount on (line 44) ++ 
 function productDetailsTemplate(product) {
   return `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
     <h2 class="divider">${product.NameWithoutBrand}</h2>
