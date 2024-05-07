@@ -33,14 +33,27 @@ export function setLocalStorage(key, newData) {
     console.error('Error in setLocalStorage:', error);
   }
 }
+// save data to local storage
+/* export function setLocalStorage(key, data) {
+  localStorage.setItem(key, JSON.stringify(data));
+} */
+// set a listener for both touchend and click
+export function setClick(selector, callback) {
+  qs(selector).addEventListener("touchend", (event) => {
+    event.preventDefault();
+    callback();
+  });
+  qs(selector).addEventListener("click", callback);
+}
+
 
 //function to hide elements, id = html class to hide
-export function hideElement(htmlClass){
+export function hideElement(htmlClass) {
   document.querySelector(htmlClass).classList.add("hide");
 }
 
 //function to show elements, id = html class to hide
-export function showElement(htmlClass){
+export function showElement(htmlClass) {
   document.querySelector(htmlClass).classList.add("show");
 }
 
