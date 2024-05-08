@@ -14,17 +14,19 @@ export default class ProductData {
     this.path = `../json/${this.category}.json`; */
   }
   async getData(category) {
-    console.log(baseURL)
     const response = await fetch(baseURL + `products/search/${category}`);
     const data = await convertToJson(response);
-    console.log(data)
+    console.info(data)
     return data.Result;
   }
+
   async findProductById(id) {
-    const response = await fetch(baseURL + `products/${id}`);
-    console.table(response)
+    this.getData("tents");
+
+    const response = await fetch(baseURL + `product/${id}`);
+    //console.table(response)
     const data = await convertToJson(response);
-    console.log(data)
+    //console.table(data)
     return data.Result;
   }
 }

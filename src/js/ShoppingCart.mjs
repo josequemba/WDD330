@@ -4,7 +4,9 @@ function cartItemTemplate(item) {
     let newItem = `<li class="cart-card divider">
       <a href="#" class="cart-card__image">
         <img
-          src="${item.Image}"
+          src="${item.Images.PrimaryMedium}"
+          srcset="${item.Images.PrimarySmall} 600w, ${item.Images.PrimaryMedium} 1000w"
+          sizes="(max-width: 600px) 1000px"
           alt="${item.Name}"
         />
       </a>
@@ -71,6 +73,7 @@ export default class ShoppingCart {
         total += JSON.parse(cartItems[i].FinalPrice);
         console.log(total)
       }
+      total = total.toFixed(2);
       document.querySelector(".cart-total").innerHTML += total;
     }
     hideElement(".cart-total");

@@ -29,9 +29,11 @@ export default class ProductDetails {
     };
 
     renderProductDetails(selector) {
+        console.log(productDetailsTemplate(this.product));
         const element = document.querySelector(selector);
         element.insertAdjacentHTML("afterBegin",
             productDetailsTemplate(this.product)
+
         )
     };
 }
@@ -42,7 +44,9 @@ function productDetailsTemplate(product) {
         <h2 class="divider">${product.NameWithoutBrand}</h2>
         <img
             class="divider"
-            src="${product.Image}"
+            src="${product.Images.PrimaryMedium}"
+            srcset="${product.Images.PrimaryMedium} 600w, ${product.Images.PrimaryLarge} 1000w"
+            sizes="(max-width: 600px) 1000px"
             alt="${product.NameWithoutBrand}"
         />
         <p class="product-card__price">$${product.FinalPrice}</p>

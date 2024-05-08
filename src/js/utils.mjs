@@ -47,6 +47,8 @@ export function showElement(htmlClass){
 //product that we want to show the details for
 export function getParams(param){
   const queryString = window.location.search;
+  console.log("queryString")
+  console.log(queryString)
   const urlParams = new URLSearchParams(queryString);
   const product = urlParams.get(param)
   return product;
@@ -60,8 +62,8 @@ export function renderListWithTemplate(templateFn, parentElement,
   if (clear) {
     parentElement.innerHTML = "";
   }
- 
-  //parentElement.insertAdjacentHTML(position, listItem.join(''));
+  
+  parentElement.insertAdjacentHTML(position, listItem.join(""));
 }
 
 //activity03
@@ -98,4 +100,8 @@ export function setClick(selector, callback) {
       callback();
   });
   qs(selector).addEventListener("click", callback);
+}
+
+export function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
