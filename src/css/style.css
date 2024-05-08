@@ -210,6 +210,27 @@ button {
   grid-column: 3;
 }
 
+#grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+.grid-item {
+  text-align: center;
+  text-decoration: none;
+}
+
+.grid-item img {
+  width: 100px;
+  height: 100px;
+}
+
+.grid-item a {
+  text-decoration: none;
+  color: #000000;
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
