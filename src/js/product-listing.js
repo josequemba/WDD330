@@ -10,7 +10,7 @@ loadHeaderFooter();
 
 const category = getParams("category");
 const dataSource = new ProductData();
-document.querySelector(".products-title").innerHTML =
+document.querySelector(".products-title").innerHTML = "Top Products: " +
   capitalizeFirstLetter(category);
 const element = document.querySelector(".product-list");
 const searchForm = document.querySelector("#search-form");
