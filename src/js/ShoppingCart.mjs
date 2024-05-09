@@ -90,6 +90,7 @@ export default class ShoppingCart {
 
     if (cartHasItems(this.key) && cartItems.length > 0) {
         for (let i = 0; i < cartItems.length; i++) {
+            console.log(cartItems[i])
             const htmlItems = cartItemTemplate(cartItems[i]);
             document.querySelector(this.parentSelector).innerHTML += htmlItems;
         }
