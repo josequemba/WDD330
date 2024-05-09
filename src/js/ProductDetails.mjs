@@ -50,6 +50,8 @@ function productDetailsTemplate(product) {
             alt="${product.NameWithoutBrand}"
         />
         <p class="product-card__price">$${product.FinalPrice}</p>
+        <p class="product-card__originalprice"> <span style="text-decoration: line-through;"> Was: $${product.SuggestedRetailPrice}</p>
+        <p class="product-card__discount">Discount: $${(product.SuggestedRetailPrice - product.FinalPrice).toFixed(2)}</p>            
         <p class="product__color">${product.Colors[0].ColorName}</p>
         <p class="product__description">
         ${product.DescriptionHtmlSimple}
