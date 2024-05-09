@@ -1,7 +1,7 @@
 import { getLocalStorage, hideElement, showElement } from "./utils.mjs";
 
 function cartItemTemplate(item) {
-    let newItem = `<li class="cart-card divider">
+  let newItem = `<li class="cart-card divider">
       <a href="#" class="cart-card__image">
         <img
           src="${item.Images.PrimaryMedium}"
@@ -18,44 +18,44 @@ function cartItemTemplate(item) {
       <p class="cart-card__price">$${item.FinalPrice}</p>
       <span id=${item.Id}> ❌ </span>
     </li>`;
-    return newItem;
+  return newItem;
 }
 
 function cartHasItems(items) {
-    if (getLocalStorage(items) != null) {
-      return true;
-    }
+  if (getLocalStorage(items) != null) {
+    return true;
+  }
 }
 
 //filterreadable data
 function readableData(items) {
-    const filteredItems = items.filter(element => element.Id != null);
-    return filteredItems;
+  const filteredItems = items.filter(element => element.Id != null);
+  return filteredItems;
 }
 
 
 function deleteItemByIndex(key, index) {
-    try {
-      // Get existing data from local storage
-      let existingData = localStorage.getItem(key);
-  
-      // Parse existing data from JSON format
-      existingData = existingData ? JSON.parse(existingData) : [];
-  
-      // If existingData is not an array, convert it into an array
-      if (!Array.isArray(existingData)) {
-        existingData = [existingData]; // Convert to array with existing data
-      }
-  
-      // Delete item at the specified index
-      existingData.splice(index, 1);
-  
-      // Save the updated data back to local storage
-      localStorage.setItem(key, JSON.stringify(existingData));
-    } catch (error) {
-      console.error('Error in deleteItemByIndex:', error);
+  try {
+    // Get existing data from local storage
+    let existingData = localStorage.getItem(key);
+
+    // Parse existing data from JSON format
+    existingData = existingData ? JSON.parse(existingData) : [];
+
+    // If existingData is not an array, convert it into an array
+    if (!Array.isArray(existingData)) {
+      existingData = [existingData]; // Convert to array with existing data
     }
+
+    // Delete item at the specified index
+    existingData.splice(index, 1);
+
+    // Save the updated data back to local storage
+    localStorage.setItem(key, JSON.stringify(existingData));
+  } catch (error) {
+    console.error('Error in deleteItemByIndex:', error);
   }
+}
 
 export default class ShoppingCart {
   constructor(key, parentSelector) {
@@ -86,21 +86,21 @@ export default class ShoppingCart {
 
   renderCartContents() {
     const cartItems = this.readableData(getLocalStorage(this.key));
-    //console.table(cartItems)
+    //console.log(cartItems);
 
     if (cartHasItems(this.key) && cartItems.length > 0) {
-        for (let i = 0; i < cartItems.length; i++) {
-            console.log(cartItems[i])
-            const htmlItems = cartItemTemplate(cartItems[i]);
-            document.querySelector(this.parentSelector).innerHTML += htmlItems;
-        }
-        this.renderTotal();
-        this.addEventListener(this.key);
+      for (let i = 0; i < cartItems.length; i++) {
+        console.log(cartItems[i])
+        const htmlItems = cartItemTemplate(cartItems[i]);
+        document.querySelector(this.parentSelector).innerHTML += htmlItems;
+      }
+      this.renderTotal();
+      this.addEventListener(this.key);
     }
   }
 
   addEventListener(items) {
-    let index = -1; 
+    let index = -1;
     let spans = document.querySelectorAll("span");
     const cart = getLocalStorage(items);
     for (let i = 0; i < spans.length; i++) {
@@ -118,9 +118,9 @@ export default class ShoppingCart {
         }
       });
     }
-    return index; 
+    return index;
   }
-      
+
 }
 
 

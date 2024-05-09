@@ -3,13 +3,12 @@
   "version": "2.0.0",
   "description": "Boilerplate for WDD 330 SleepOutside project",
   "main": "main.js",
-  "type": "module",
   "scripts": {
     "start": "vite",
     "build": "vite build --emptyOutDir",
     "preview": "vite preview",
     "lint": "eslint *.js src/**/*.js",
-    "format": "preottier --ignore-path ./.gitignore --write \"./**/*.{html,json,js,ts,css}\"",
+    "format": "prettier --ignore-path ./.gitignore --write \"./**/*.{html,json,js,ts,css}\"",
     "test": "jest"
   },
   "author": "Shane Thompson",
@@ -33,8 +32,5 @@
     "last 3 opera versions",
     "last 3 ios_saf versions",
     "last 3 safari versions"
-  ],
-  "dependencies": {
-    "@vitejs/plugin-react": "^4.2.1"
-  }
+  ]
 }

@@ -272,7 +272,7 @@ button {
   background-color: #45a049;
 }
 
-#result-search{
+#result-search {
   display: none;
   position: absolute;
   left: 50%;
@@ -284,7 +284,6 @@ button {
   font-weight: bold;
   color: #333;
 }
-
 
 @media screen and (min-width: 500px) {
   body {
@@ -305,7 +304,7 @@ button {
     top: 12%;
   }
 
-  .products{
+  .products {
     padding-top: 24%;
   }
 }
