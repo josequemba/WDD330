@@ -47,8 +47,6 @@ export function showElement(htmlClass){
 //product that we want to show the details for
 export function getParams(param){
   const queryString = window.location.search;
-  console.log("queryString")
-  console.log(queryString)
   const urlParams = new URLSearchParams(queryString);
   const product = urlParams.get(param)
   return product;

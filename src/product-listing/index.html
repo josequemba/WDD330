@@ -7,7 +7,13 @@
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
-    <header id="main-header" class="divider"></header>
+    <header id="main-header" class="divider">
+      <form id="search-form">
+        <input type="text" id="search-input" placeholder="Search for a product..." />
+        <button type="submit">Search</button>
+        <span id="result-search"> 0 results </span>
+      </form>
+    </header>
 
     <main class="divider">
       <section class="products">
