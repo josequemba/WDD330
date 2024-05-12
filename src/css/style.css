@@ -247,6 +247,15 @@ button {
   grid-row: 2;
   grid-column: 3;
 }
+/* small adding for the icon bag inside the index page */
+.badge{
+  position:absolute;
+  top: 22px;
+  right: 8px;
+  color: white;
+  font-size: 16px;
+}
+/* small adding for the icon bag inside the index page */
 
 #grid-container {
   display: grid;
