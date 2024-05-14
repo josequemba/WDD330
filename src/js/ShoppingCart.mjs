@@ -68,6 +68,7 @@ export default class ShoppingCart {
     const cartItems = readableData(getLocalStorage("so-cart"));
     if (cartHasItems(this.key) && cartItems.length > 0) {
       showElement(".cart-total");
+      showElement(".checkout-button");
       for (let i = 0; i < cartItems.length; i++) {
         console.log(cartItems[i])
         total += JSON.parse(cartItems[i].FinalPrice);
@@ -77,6 +78,7 @@ export default class ShoppingCart {
       document.querySelector(".cart-total").innerHTML += total;
     }
     hideElement(".cart-total");
+    hideElement(".checkout-button");
   }
 
   readableData(items) {
