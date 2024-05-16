@@ -29,8 +29,11 @@ function cartHasItems(items) {
 
 //filterreadable data
 function readableData(items) {
-  const filteredItems = items.filter(element => element.Id != null);
-  return filteredItems;
+  if (items !== null) {
+      return items.filter(element => element.Id != null);
+  } else {
+      return null;
+  }
 }
 
 
@@ -70,9 +73,7 @@ export default class ShoppingCart {
       showElement(".cart-total");
       showElement(".checkout-button");
       for (let i = 0; i < cartItems.length; i++) {
-        console.log(cartItems[i])
         total += JSON.parse(cartItems[i].FinalPrice);
-        console.log(total)
       }
       total = total.toFixed(2);
       document.querySelector(".cart-total").innerHTML += total;
@@ -82,17 +83,18 @@ export default class ShoppingCart {
   }
 
   readableData(items) {
-    const filteredItems = items.filter(element => element.Id != null);
-    return filteredItems;
+    if (items !== null) {
+        return items.filter(element => element.Id != null);
+    } else {
+        return null;
+    }
   }
 
   renderCartContents() {
     const cartItems = this.readableData(getLocalStorage(this.key));
-    //console.log(cartItems);
 
     if (cartHasItems(this.key) && cartItems.length > 0) {
       for (let i = 0; i < cartItems.length; i++) {
-        console.log(cartItems[i])
         const htmlItems = cartItemTemplate(cartItems[i]);
         document.querySelector(this.parentSelector).innerHTML += htmlItems;
       }

@@ -343,6 +343,60 @@ button {
   align-items: center; 
 }
 
+.success-content {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.success-title h1 {
+  color: #4CAF50;
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.success-icon {
+  font-size: 100px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* The alert message box */
+#alert-container {
+  color: white;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  opacity: 1;
+  transition: opacity 0.6s; 
+}
+
+.alert {
+  padding: 15px;
+  background-color: #f0a868;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.6s; 
+  border: 1.5px solid #f75757;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+}
+
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;

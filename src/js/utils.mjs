@@ -103,3 +103,57 @@ export function setClick(selector, callback) {
 export function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
+// Function to create an alert message
+export function alertMessage(message, scroll = true) {
+  // Create a new alert element
+  var alertElement = document.createElement('div');
+  alertElement.classList.add('alert');
+
+  // Add close button
+  var closeButton = document.createElement('span');
+  closeButton.classList.add('closebtn');
+  closeButton.innerHTML = '&times;';
+
+  // Add message
+  var messageSpan = document.createElement('span');
+  messageSpan.classList.add('message');
+  messageSpan.innerText = message;
+
+  // Append close button and message to alert element
+  alertElement.appendChild(closeButton);
+  alertElement.appendChild(messageSpan);
+
+  // Append the alert to the alert-container
+  document.getElementById('alert-container').appendChild(alertElement);
+
+  closeButton.onclick = function() {
+      var index = Array.prototype.indexOf.call(alertElement.parentNode.children, alertElement);
+      removeAlertByIndex(index); 
+  };
+
+  // Scroll to the top if needed
+  if (scroll) {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+  }
+}
+
+// Function to remove an alert by index
+function removeAlertByIndex(index) {
+  var alertContainer = document.getElementById('alert-container');
+  var alerts = alertContainer.getElementsByClassName('alert');
+  
+  if (index >= 0 && index < alerts.length) {
+      removeAlertByElement(alerts[index]);
+  } else {
+      console.error('Invalid index');
+  }
+}
+
+// Function to remove an alert by its DOM element
+function removeAlertByElement(alertElement) {
+  alertElement.remove();
+}
