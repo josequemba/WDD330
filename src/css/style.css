@@ -85,7 +85,7 @@ header {
   margin-top: -1.3em;
 }
 
-.logo--square>div {
+.logo--square > div {
   margin-top: -1.7em;
 }
 
@@ -321,6 +321,26 @@ button {
   border-radius: 5px;
   font-weight: bold;
   color: #333;
+}
+
+.checkout-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4caf50; /* Green */
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cart-footer {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 20px;
+  align-items: center;
 }
 
 @media screen and (min-width: 500px) {

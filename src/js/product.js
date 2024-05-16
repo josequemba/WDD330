@@ -1,9 +1,9 @@
 import { setLocalStorage } from "./utils.mjs";
-import ProductData from "./ProductData.mjs";
+import ExternalServices from "./ExternalServices.mjs";
 import { getParams } from "./utils.mjs";
 import ProductDetails from "./ProductDetails.mjs";
 
-const dataSource = new ProductData();
+const dataSource = new ExternalServices();
 
 /* function addProductToCart(product) {
   setLocalStorage("so-cart", product);
@@ -27,7 +27,7 @@ async function addToCartHandler(e) {
   .addEventListener("click", addToCartHandler); */
 
 const productId = getParams("product");
-const dataSourceName = new ProductData();
+const dataSourceName = new ExternalServices();
 //console.log(dataSourceName);
 //console.log(productId);
 

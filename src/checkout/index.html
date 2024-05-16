@@ -8,7 +8,7 @@
 
     <title>Sleep Outside | Checkout</title>
 
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
   </head>
 
   <body>
@@ -17,7 +17,51 @@
     <main class="divider">
       <section class="products">
         <h2>Review & Place your Order</h2>
+
+        <form id="checkout-form">
+          <div>
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" name="first-name" required />
+          </div>
+          <div>
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" name="last-name" required />
+          </div>
+          <div>
+            <label for="street-address">Street Address:</label>
+            <input type="text" id="street-address" name="street-address" required />
+          </div>
+          <div>
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required />
+          </div>
+          <div>
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state" required />
+          </div>
+          <div>
+            <label for="zip-code">Zip Code:</label>
+            <input type="text" id="zip-code" name="zip-code" pattern="[0-9]{5}" title="Please enter a valid 5-digit ZIP code." required />
+          </div>
+          <div>
+            <label for="credit-card-number">Credit Card Number:</label>
+            <input type="text" id="credit-card-number" name="credit-card-number" pattern="[0-9]{16}" title="Please enter a valid 16-digit credit card number." required />
+          </div>
+          <div>
+            <label for="expiration-date">Expiration Date:</label>
+            <input type="text" id="expiration-date" name="expiration-date" pattern="(0[1-9]|1[0-2])\/[0-9]{2}" title="Please enter a valid expiration date (MM/YY)." required />
+          </div>
+          <div>
+            <label for="security-code">Security Code:</label>
+            <input type="text" id="security-code" name="security-code" pattern="[0-9]{3,4}" title="Please enter a valid 3 or 4-digit security code." required />
+          </div>
+          <br>
+          <button type="submit">Checkout</button>
+        </form>
+  
+      <section id="order-summary">
       </section>
+      
     </main>
 
     <footer id="main-footer"></footer>
