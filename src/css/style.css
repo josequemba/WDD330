@@ -396,6 +396,53 @@ button {
   color: black;
 }
 
+.heart-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+}
+
+.heart-filled {
+  fill: var(--primary-color);
+}
+.heart-outline {
+  stroke: var(--primary-color);
+  stroke-width: 2;
+}
+.heart-button:focus {
+  outline: none;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center; 
+  justify-content: space-between; 
+}
+
+.products-title {
+  margin: 0; 
+}
+
+.show-favorites-button {
+  background-color: #f0a868;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 0; 
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.show-favorites-button:hover {
+  background-color: #d58957;
+}
 
 @media screen and (min-width: 500px) {
   body {

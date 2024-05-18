@@ -1,5 +1,6 @@
 
-import { renderListWithTemplate } from "./utils.mjs";
+import { renderListWithTemplate, getLocalStorage, setLocalStorage, removeItemsFromLocalStorage} from "./utils.mjs";
+import ExternalServices from "./ExternalServices.mjs";
 
 function productCardTemplate(product) {
 
@@ -20,6 +21,12 @@ function productCardTemplate(product) {
     <h3 class="card__brand">${product.Brand.Name}</h3>
     <h2 class="card__name">${product.Name}</h2>
     <p class="product-card__price">$${product.FinalPrice}</p></a>
+
+    <button class="heart-button" data-product-id="${product.Id}">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="heart-outline" fill="none">
+            <path id="heart-path" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+    </button>
     
     </li>`;
     }
@@ -35,6 +42,13 @@ function productCardTemplate(product) {
         <h3 class="card__brand">${product.Brand.Name}</h3>
         <h2 class="card__name">${product.Name}</h2>
         <p class="product-card__price">$${product.FinalPrice}</p></a>
+
+        <button class="heart-button" data-product-id="${product.Id}">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="heart-outline" fill="none">
+                <path id="heart-path" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+        </button>
+        
         </li>`;
     }
 }
@@ -55,17 +69,26 @@ function filterListBySearch(list, searchWord) {
 }
 
 export default class ProductListing {
-    constructor(dataSource, category, listElement, search, searchResult) {
+    constructor(dataSource, category, listElement, search, searchResult, productId = null) {
         this.category = category;
         this.dataSource = dataSource;
         this.listElement = listElement;
         this.seach = search;
         this.searchResult = searchResult;
+        this.productId = productId;
+        this.list2 = [];
     }
 
     async init() {
-        const list = await this.dataSource.getData(this.category);
-        this.renderList(filterListByFour(list));
+        if (this.productId === null) {
+            const list = await this.dataSource.getData(this.category);
+            this.renderList(filterListByFour(list));
+        } else {
+            console.log("list")
+            const list = await this.dataSource.findProductByIds(this.productId);
+            this.list2 = list;
+            this.renderList(list);
+        }
     };
 
     renderList(list) {
@@ -88,7 +111,91 @@ export default class ProductListing {
             if (newList.length == originalList.length) {
                 this.searchResult.style.display = "none";
             }
-
         });
+
     };
+    
 }
+
+async function b () {
+    const heartButtons = document.querySelectorAll(".heart-button");
+    const favoriteItems = getLocalStorage("favoriteItems");
+    //console.log(favoriteItems, "corrent")
+
+    if (heartButtons.length > 0) {
+        heartButtons.forEach(heartButton => {
+
+          heartButton.addEventListener("click", function() {
+            const heartSVG = this.querySelector('.heart-outline');
+            if (heartSVG) {
+                if (heartSVG.getAttribute("fill") != "none" || heartSVG.getAttribute("fill") === null) {
+                    heartSVG.setAttribute("fill", "none"); // Set fill to none for outline
+
+                    const productId = heartButton.getAttribute('data-product-id'); //get the click item id
+                    removeItemsFromLocalStorage("favoriteItems", productId) //removing from localstorage
+                    showbutton(favoriteItems);
+
+                    if (this.productId !== null) {
+                        window.location.reload();
+                    } 
+                } else {
+                    heartSVG.setAttribute("fill", "#f0a868"); // Change fill color to red
+
+                    const productId = heartButton.getAttribute("data-product-id"); //get the click item id
+                    setLocalStorage("favoriteItems", productId) //adding to local storage
+                    showbutton(favoriteItems);
+                    window.location.reload();
+                }
+            } else {
+                //console.error("Heart SVG not found within the heart button.");
+            }
+
+          });
+        });
+    } else {
+        //console.error("Heart buttons not found.");
+    }
+}
+  
+setTimeout(b, 1000);
+
+const favoriteItems = getLocalStorage("favoriteItems");
+
+function showbutton(favoriteItems) {
+    const showFavoritesButtons = document.querySelectorAll(".show-favorites-button");
+    if (favoriteItems.length > 0) {
+        showFavoritesButtons.forEach(button => {
+            button.style.display = "block";
+        });
+    } else {
+        showFavoritesButtons.forEach(button => {
+            button.style.display = "none";
+        });
+    }
+}
+
+setTimeout(showbutton(favoriteItems), 1000);
+
+function showInitialStatus() {
+    const heartButtons = document.querySelectorAll(".heart-button");
+    const favoriteItems = getLocalStorage("favoriteItems");
+    
+
+    if (heartButtons.length > 0) {
+        heartButtons.forEach(heartButton => {
+            const productId = heartButton.getAttribute('data-product-id'); //get the click item id
+            const heartSVG = heartButton.querySelector('.heart-outline');
+
+            if (favoriteItems.includes(productId)) {
+                heartSVG.setAttribute("fill", "#f0a868"); // Set fill to none for outline
+            } else {
+                heartSVG.setAttribute("fill", "none"); // Change fill color to red
+            }
+          
+          });
+    } else {
+        //console.error("Heart buttons not found.");
+    }
+}
+
+setTimeout(showInitialStatus, 1000);

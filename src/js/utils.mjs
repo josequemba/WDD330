@@ -142,7 +142,7 @@ export function alertMessage(message, scroll = true) {
 }
 
 // Function to remove an alert by index
-function removeAlertByIndex(index) {
+export function removeAlertByIndex(index) {
   var alertContainer = document.getElementById('alert-container');
   var alerts = alertContainer.getElementsByClassName('alert');
   
@@ -156,4 +156,18 @@ function removeAlertByIndex(index) {
 // Function to remove an alert by its DOM element
 function removeAlertByElement(alertElement) {
   alertElement.remove();
+}
+
+export function removeItemsFromLocalStorage(key, itemToRemove) {
+  // Step 1: Retrieve the array from local storage
+  let storedArray = JSON.parse(localStorage.getItem(key)) || [];
+  
+  // Step 2: Filter out all instances of the item to remove
+  let filteredArray = storedArray.filter(item => item !== itemToRemove);
+  
+  // Step 3: Save the updated array back to local storage
+  localStorage.setItem(key, JSON.stringify(filteredArray));
+  
+  // Log the result to verify
+  console.log(filteredArray);
 }

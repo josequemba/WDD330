@@ -1,22 +1,22 @@
 import { getLocalStorage, alertMessage } from "./utils.mjs";
-import ExternalServices from "./ProductData.mjs";
+import ExternalServices from "./ExternalServices.mjs";
 
 const externalServices = new ExternalServices();
 
 export default class CheckoutProcess {
     constructor(key, outputSelector) {
-      this.key = key;
-      this.outputSelector = outputSelector;
-      this.list = [];
-      this.itemTotal = 0;
-      this.shipping = 0;
-      this.tax = 0;
-      this.orderTotal = 0;
+        this.key = key;
+        this.outputSelector = outputSelector;
+        this.list = [];
+        this.itemTotal = 0;
+        this.shipping = 0;
+        this.tax = 0;
+        this.orderTotal = 0;
     }
-  
+
     init() {
-      this.list = this.readableData(getLocalStorage(this.key));
-      this.calculateItemSummary();
+        this.list = this.readableData(getLocalStorage(this.key));
+        this.calculateItemSummary();
     }
 
     readableData(items) {
@@ -33,22 +33,22 @@ export default class CheckoutProcess {
         if (this.list !== null) {
             this.itemTotal = 0;
             const dataElement = this.list;
-        
+
             if (dataElement.length > 0) {
                 for (let i = 0; i < dataElement.length; i++) {
                     this.itemTotal += JSON.parse(dataElement[i].FinalPrice);
                 }
                 this.itemTotal = +this.itemTotal;
             }
-        
+
             const htmlElement = `<h2>Order Summary</h2>
                 <div id="subtotal">Subtotal: $${this.itemTotal.toFixed(2)}</div>
                 `;
-        
+
             document.querySelector(this.outputSelector).innerHTML = htmlElement;
         }
     }
-  
+
     calculateOrdertotal() {
         // calculate the shipping and tax amounts. Then use them to along with the cart total to figure out the order total
         this.shipping = this.list.length > 1 ? 10 + (this.list.length - 1) * 2 : 10;
@@ -60,13 +60,13 @@ export default class CheckoutProcess {
             <div id="shipping-estimate">Shipping Estimate: $${this.shipping.toFixed(2)}</div>
             <div id="tax">Tax: $${this.tax.toFixed(2)}</div>
             <div id="order-total">Order Total: $${this.orderTotal.toFixed(2)}</div>`
-        
+
         // display the totals.
         this.displayOrderTotals(htmlElement);
     }
-  
+
     displayOrderTotals(element) {
-      // once the totals are all calculated display them in the order summary page
+        // once the totals are all calculated display them in the order summary page
         document.querySelector(this.outputSelector).innerHTML = element;
     }
 
@@ -93,14 +93,14 @@ export default class CheckoutProcess {
         try {
             const response = await externalServices.checkout(dataForm);
             console.log('Checkout response:', response);
-            
+
             if (response.message == "Order Placed") {
                 console.log("yes got it")
                 //go to success page
                 window.location.href = "../checkout/success.html";
                 //clear cart
                 localStorage.removeItem("so-cart");
-            } 
+            }
         } catch (error) {
             for (let message in error.message) {
                 alertMessage(error.message[message]);

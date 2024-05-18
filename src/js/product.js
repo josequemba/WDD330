@@ -1,5 +1,5 @@
 import { setLocalStorage } from "./utils.mjs";
-import ExternalServices from "./ProductData.mjs";
+import ExternalServices from "./ExternalServices.mjs";
 import { getParams } from "./utils.mjs";
 import ProductDetails from "./ProductDetails.mjs";
 
