@@ -35,32 +35,32 @@ export function setLocalStorage(key, newData) {
 }
 
 //function to hide elements, id = html class to hide
-export function hideElement(htmlClass){
+export function hideElement(htmlClass) {
   document.querySelector(htmlClass).classList.add("hide");
 }
 
 //function to show elements, id = html class to hide
-export function showElement(htmlClass){
+export function showElement(htmlClass) {
   document.querySelector(htmlClass).classList.add("show");
 }
 
 //product that we want to show the details for
-export function getParams(param){
+export function getParams(param) {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const product = urlParams.get(param)
   return product;
-}; 
+};
 
-export function renderListWithTemplate(templateFn, parentElement, 
+export function renderListWithTemplate(templateFn, parentElement,
   list, position = "afterbegin", clear = false) {
-  
+
   const listItem = list.map(templateFn);
-  
+
   if (clear) {
     parentElement.innerHTML = "";
   }
-  
+
   parentElement.insertAdjacentHTML(position, listItem.join(""));
 }
 
@@ -68,7 +68,7 @@ export function renderListWithTemplate(templateFn, parentElement,
 
 export function renderWithTemplate(template, parentElement, data, callback) {
   parentElement.insertAdjacentHTML("afterbegin", template);
-  if(callback) {
+  if (callback) {
     callback(data);
   }
 }
@@ -94,12 +94,28 @@ export async function loadHeaderFooter() {
 // set a listener for both touchend and click
 export function setClick(selector, callback) {
   qs(selector).addEventListener("touchend", (event) => {
-      event.preventDefault();
-      callback();
+    event.preventDefault();
+    callback();
   });
   qs(selector).addEventListener("click", callback);
 }
 
 export function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+export function alertMessage(message, scroll = true, duration = 3000) {
+  const alert = document.createElement("div");
+  alert.classList.add("alert");
+  alert.innerHTML = `<p class="alert"><span>❌</span> ${message}</p>`;
+
+  alert.addEventListener("click", function (e) {
+    if (e.target.tagName == "SPAN") {
+      main.removeChild(this);
+    }
+  });
+  const main = document.querySelector("main");
+  main.prepend(alert);
+
+  if (scroll) window.scrollTo(0, 0);
 }

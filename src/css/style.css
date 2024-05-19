@@ -85,7 +85,7 @@ header {
   margin-top: -1.3em;
 }
 
-.logo--square > div {
+.logo--square>div {
   margin-top: -1.7em;
 }
 
@@ -126,8 +126,46 @@ button {
   text-align: center;
 }
 
+/* Animate cart (backpack) icon when item added to cart */
+.cart-fill {
+  padding-top: 1em;
+  position: relative;
+  text-align: center;
+}
+
 .cart svg {
   width: 25px;
+}
+
+/* Animate cart (backpack) icon when item added to cart */
+.cart-fill svg {
+  width: 25px;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+
+@keyframes example {
+  0% {
+    fill: red;
+    transform: scale(1);
+  }
+
+  25% {
+    fill: purple;
+    transform: scale(1.5);
+  }
+
+  50% {
+    fill: blue;
+    transform: scale(2);
+  }
+
+  100% {
+    fill: red;
+    transform: scale(1.5);
+  }
 }
 
 .cart:hover svg {
@@ -188,6 +226,14 @@ button {
   left: 50%;
   transform: translateX(-50%);
   margin: 0px;
+}
+
+/* Alert message */
+.alert {
+  color: #fff;
+  font-weight: 600;
+  background: #525B0F;
+  border: #525B0F;
 }
 
 .card__brand {
@@ -326,7 +372,8 @@ button {
 .checkout-button {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #4caf50; /* Green */
+  background-color: #4caf50;
+  /* Green */
   color: white;
   text-align: center;
   text-decoration: none;
