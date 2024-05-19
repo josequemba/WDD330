@@ -1,4 +1,4 @@
-import { setLocalStorage } from "./utils.mjs";
+import { setLocalStorage, alertMessage } from "./utils.mjs";
 
 // ProductDetails.mjs
 export default class ProductDetails {
@@ -26,7 +26,16 @@ export default class ProductDetails {
 
     addToCart() {
         setLocalStorage("so-cart", this.product);
+        alertMessage(`${this.product.NameWithoutBrand} added to cart!`);
+
+        // Animate cart (backpack) icon when item added to cart
+        //document.getElementsByClassName("cart").className = "cart-fill";
+        changeClass();
+
+        //document.getElementById(".cart").className = "cart-fill";
+        console.log("checa la clase")
     };
+
 
     renderProductDetails(selector) {
         console.log(productDetailsTemplate(this.product));
@@ -37,6 +46,15 @@ export default class ProductDetails {
         )
     };
 }
+
+export function changeClass() {
+
+    var element = document.querySelector("#cartId");
+
+    element.classList.replace("cart", "cart-fill");
+
+    //element.classList.replace("cart-fill", "cart");
+};
 
 
 function productDetailsTemplate(product) {

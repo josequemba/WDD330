@@ -91,6 +91,7 @@ export default class ShoppingCart {
     //console.log(cartItems);
 
     if (cartHasItems(this.key) && cartItems.length > 0) {
+
       for (let i = 0; i < cartItems.length; i++) {
         console.log(cartItems[i])
         const htmlItems = cartItemTemplate(cartItems[i]);

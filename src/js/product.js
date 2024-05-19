@@ -33,3 +33,9 @@ const dataSourceName = new ExternalServices();
 
 const product = new ProductDetails(productId, dataSourceName);
 product.init();
+
+// changeClass function, for the animation of the bag icon
+export function changeClass() {
+  var element = document.querySelector("#cartId");
+  element.classList.replace("cart", "cart-fill");
+}
