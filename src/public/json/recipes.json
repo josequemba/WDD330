@@ -1,0 +1,142 @@
+{
+  "recipes": [
+    {
+      "title": "Classic Spaghetti Carbonara",
+      "category": "Italian",
+      "description": "A quick and easy Italian pasta dish made with eggs, cheese, pancetta, and pepper.",
+      "image": "https://example.com/images/spaghetti-carbonara.jpg",
+      "ingredients": [
+        { "name": "spaghetti", "quantity": "400g" },
+        { "name": "pancetta", "quantity": "150g", "preparation": "diced" },
+        { "name": "large eggs", "quantity": "4" },
+        { "name": "Parmesan cheese", "quantity": "100g", "preparation": "grated" },
+        { "name": "black pepper", "quantity": "to taste", "preparation": "freshly ground" },
+        { "name": "salt", "quantity": "to taste" },
+        { "name": "olive oil", "quantity": "1 tbsp" }
+      ],
+      "instructions": [
+        { "step": 1, "description": "Bring a large pot of salted water to a boil. Add spaghetti and cook until al dente, about 8-10 minutes." },
+        { "step": 2, "description": "In a large skillet, heat olive oil over medium heat. Add pancetta and cook until crisp, about 5-7 minutes." },
+        { "step": 3, "description": "In a bowl, whisk together eggs and grated Parmesan cheese until well combined." },
+        { "step": 4, "description": "Drain the spaghetti, reserving 1 cup of the pasta water." },
+        { "step": 5, "description": "Add the hot spaghetti to the skillet with pancetta. Remove from heat and quickly pour the egg and cheese mixture over the pasta, tossing to coat." },
+        { "step": 6, "description": "Add reserved pasta water a little at a time to achieve a creamy consistency." },
+        { "step": 7, "description": "Season with freshly ground black pepper and salt to taste. Serve immediately." }
+      ],
+      "servings": 4,
+      "prep_time": "10 minutes",
+      "cook_time": "20 minutes",
+      "nutrition": {
+        "calories": "450",
+        "protein": "20g",
+        "carbohydrates": "60g",
+        "fat": "15g"
+      },
+      "notes": "For a vegetarian version, omit the pancetta and add sautéed mushrooms instead."
+    },
+    {
+      "title": "Chicken Alfredo",
+      "category": "Italian",
+      "description": "A rich and creamy pasta dish with grilled chicken, Parmesan cheese, and a smooth Alfredo sauce.",
+      "image": "https://example.com/images/chicken-alfredo.jpg",
+      "ingredients": [
+        { "name": "fettuccine", "quantity": "400g" },
+        { "name": "chicken breasts", "quantity": "2", "preparation": "grilled and sliced" },
+        { "name": "heavy cream", "quantity": "2 cups" },
+        { "name": "Parmesan cheese", "quantity": "1 cup", "preparation": "grated" },
+        { "name": "garlic", "quantity": "2 cloves", "preparation": "minced" },
+        { "name": "butter", "quantity": "4 tbsp" },
+        { "name": "salt", "quantity": "to taste" },
+        { "name": "black pepper", "quantity": "to taste" },
+        { "name": "parsley", "quantity": "2 tbsp", "preparation": "chopped" }
+      ],
+      "instructions": [
+        { "step": 1, "description": "Cook fettuccine according to package instructions." },
+        { "step": 2, "description": "In a large skillet, melt butter over medium heat. Add minced garlic and sauté until fragrant, about 1 minute." },
+        { "step": 3, "description": "Add heavy cream to the skillet and bring to a simmer. Reduce heat and cook until sauce thickens, about 5 minutes." },
+        { "step": 4, "description": "Stir in grated Parmesan cheese until melted and smooth. Season with salt and black pepper to taste." },
+        { "step": 5, "description": "Add cooked fettuccine and sliced grilled chicken to the skillet. Toss to coat with sauce." },
+        { "step": 6, "description": "Serve immediately, garnished with chopped parsley." }
+      ],
+      "servings": 4,
+      "prep_time": "15 minutes",
+      "cook_time": "20 minutes",
+      "nutrition": {
+        "calories": "650",
+        "protein": "30g",
+        "carbohydrates": "45g",
+        "fat": "40g"
+      },
+      "notes": "For a lighter version, use half-and-half instead of heavy cream."
+    },
+    {
+      "title": "Margherita Pizza",
+      "category": "Italian",
+      "description": "A classic Italian pizza topped with fresh tomatoes, mozzarella cheese, basil, and olive oil.",
+      "image": "https://example.com/images/margherita-pizza.jpg",
+      "ingredients": [
+        { "name": "pizza dough", "quantity": "1 ball" },
+        { "name": "tomatoes", "quantity": "2", "preparation": "sliced" },
+        { "name": "fresh mozzarella cheese", "quantity": "200g", "preparation": "sliced" },
+        { "name": "fresh basil leaves", "quantity": "a handful" },
+        { "name": "olive oil", "quantity": "2 tbsp" },
+        { "name": "salt", "quantity": "to taste" },
+        { "name": "black pepper", "quantity": "to taste" }
+      ],
+      "instructions": [
+        { "step": 1, "description": "Preheat the oven to 475°F (245°C). Place a pizza stone or baking sheet in the oven to preheat." },
+        { "step": 2, "description": "Stretch out the pizza dough on a lightly floured surface to form a round shape." },
+        { "step": 3, "description": "Transfer the dough to a parchment paper-lined baking sheet or a pizza peel dusted with cornmeal." },
+        { "step": 4, "description": "Arrange the sliced tomatoes and mozzarella cheese over the dough." },
+        { "step": 5, "description": "Bake in the preheated oven until the crust is golden and the cheese is bubbly, about 10-12 minutes." },
+        { "step": 6, "description": "Remove from the oven and top with fresh basil leaves. Drizzle with olive oil and season with salt and black pepper." },
+        { "step": 7, "description": "Slice and serve immediately." }
+      ],
+      "servings": 4,
+      "prep_time": "15 minutes",
+      "cook_time": "10 minutes",
+      "nutrition": {
+        "calories": "300",
+        "protein": "12g",
+        "carbohydrates": "35g",
+        "fat": "12g"
+      },
+      "notes": "For a crispy crust, preheat the pizza stone or baking sheet in the oven before placing the pizza on it."
+    },
+    {
+      "title": "Tacos al Pastor",
+      "category": "Mexican",
+      "description": "Traditional Mexican tacos made with marinated pork, pineapple, onions, and cilantro.",
+      "image": "https://example.com/images/tacos-al-pastor.jpg",
+      "ingredients": [
+        { "name": "pork shoulder", "quantity": "500g", "preparation": "thinly sliced" },
+        { "name": "corn tortillas", "quantity": "12" },
+        { "name": "pineapple", "quantity": "1 cup", "preparation": "diced" },
+        { "name": "onion", "quantity": "1", "preparation": "finely chopped" },
+        { "name": "fresh cilantro", "quantity": "1/2 cup", "preparation": "chopped" },
+        { "name": "lime wedges", "quantity": "for serving" },
+        { "name": "salsa verde", "quantity": "for serving" },
+        { "name": "salt", "quantity": "to taste" },
+        { "name": "black pepper", "quantity": "to taste" },
+        { "name": "corn tortillas", "quantity": "12" }
+      ],
+      "instructions": [
+        { "step": 1, "description": "In a bowl, combine sliced pork shoulder with salt, pepper, and your favorite taco seasoning. Let marinate for at least 1 hour or overnight in the refrigerator." },
+        { "step": 2, "description": "Preheat a grill or grill pan over medium-high heat. Grill the marinated pork slices until cooked through and slightly charred, about 3-4 minutes per side." },
+        { "step": 3, "description": "Warm the corn tortillas on the grill for about 30 seconds per side." },
+        { "step": 4, "description": "To assemble the tacos, place a few slices of grilled pork on each tortilla. Top with diced pineapple, chopped onion, and fresh cilantro." },
+        { "step": 5, "description": "Serve hot with lime wedges, salsa verde, and your favorite toppings." }
+      ],
+      "servings": 6,
+      "prep_time": "20 minutes",
+      "cook_time": "10 minutes",
+      "nutrition": {
+        "calories": "250",
+        "protein": "20g",
+        "carbohydrates": "25g",
+        "fat": "8g"
+      },
+      "notes": "For authentic flavor, use a vertical rotisserie to cook the pork, and grill the pineapple slices before dicing."
+    }
+  ]
+}
