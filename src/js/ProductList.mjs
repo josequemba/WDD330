@@ -163,6 +163,9 @@ const favoriteItems = getLocalStorage("favoriteItems");
 
 function showbutton(favoriteItems) {
     const showFavoritesButtons = document.querySelectorAll(".show-favorites-button");
+    if(!favoriteItems){
+        return;
+    }
     if (favoriteItems.length > 0) {
         showFavoritesButtons.forEach(button => {
             button.style.display = "block";
@@ -179,8 +182,9 @@ setTimeout(showbutton(favoriteItems), 1000);
 function showInitialStatus() {
     const heartButtons = document.querySelectorAll(".heart-button");
     const favoriteItems = getLocalStorage("favoriteItems");
-    
-
+    if(!favoriteItems){
+        return;
+    }
     if (heartButtons.length > 0) {
         heartButtons.forEach(heartButton => {
             const productId = heartButton.getAttribute('data-product-id'); //get the click item id
