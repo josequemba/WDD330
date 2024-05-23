@@ -1,6 +1,5 @@
 
 import { renderListWithTemplate, getLocalStorage, setLocalStorage, removeItemsFromLocalStorage} from "./utils.mjs";
-import ExternalServices from "./ExternalServices.mjs";
 
 function productCardTemplate(product) {
 

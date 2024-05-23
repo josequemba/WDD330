@@ -29,6 +29,6 @@ listElement.init();
 
 
 document.querySelector(".show-favorites-button").addEventListener("click", function () {
-  window.location.href = "../favorite_products/index.html";
+  window.location.href = "/src/favorite_products/index.html";
 })
 

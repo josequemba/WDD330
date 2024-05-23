@@ -47,7 +47,6 @@ export default class ExternalServices {
 
     const filteredData = allData.filter(element => ids.includes(element.Id));
 
-    //console.log(filteredData);
 
     return filteredData;
   };
@@ -63,7 +62,6 @@ export default class ExternalServices {
   }
 
   async checkout (formObject) {
-    //const url = "https://wdd330-backend.onrender.com:3000/checkout";
     const options = {
         method: "POST",
         headers: {
