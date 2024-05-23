@@ -1,10 +1,16 @@
+<<<<<<< HEAD
 import { getLocalStorage, alertMessage } from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
+=======
+import ExternalServices from "./ExternalServices.mjs";
+import { getLocalStorage } from "./utils.mjs";
+>>>>>>> dc51288f7ee4bceadc3759aceeb8001b037a7077
 
 const externalServices = new ExternalServices();
 
 export default class CheckoutProcess {
     constructor(key, outputSelector) {
+<<<<<<< HEAD
         this.key = key;
         this.outputSelector = outputSelector;
         this.list = [];
@@ -39,34 +45,86 @@ export default class CheckoutProcess {
                     this.itemTotal += JSON.parse(dataElement[i].FinalPrice);
                 }
                 this.itemTotal = +this.itemTotal;
+=======
+      this.key = key;
+      this.outputSelector = outputSelector;
+      this.list = [];
+      this.itemTotal = 0;
+      this.shipping = 0;
+      this.tax = 0;
+      this.orderTotal = 0;
+    }
+  
+    init() {
+      this.list = getLocalStorage(this.key);
+      this.calculateItemSummary();
+    }
+  
+    calculateItemSummary() {
+      // calculate and display the total amount of the items in the cart, and the number of items.
+        if (this.list !== null) {
+            if (this.list.length > 0) {
+                const dataElement = this.list;
+        
+                if (dataElement.length > 0) {
+                    this.itemTotal = 0;
+                    for (let i = 0; i < dataElement.length; i++) {
+                        this.itemTotal += JSON.parse(dataElement[i].FinalPrice);
+                    }
+                }
+>>>>>>> dc51288f7ee4bceadc3759aceeb8001b037a7077
             }
 
             const htmlElement = `<h2>Order Summary</h2>
                 <div id="subtotal">Subtotal: $${this.itemTotal.toFixed(2)}</div>
+<<<<<<< HEAD
                 `;
+=======
+            `;
+>>>>>>> dc51288f7ee4bceadc3759aceeb8001b037a7077
 
             document.querySelector(this.outputSelector).innerHTML = htmlElement;
         }
     }
+<<<<<<< HEAD
 
     calculateOrdertotal() {
         // calculate the shipping and tax amounts. Then use them to along with the cart total to figure out the order total
+=======
+  
+    calculateOrdertotal() {
+      // calculate the shipping and tax amounts. Then use them to along with the cart total to figure out the order total
+>>>>>>> dc51288f7ee4bceadc3759aceeb8001b037a7077
         this.shipping = this.list.length > 1 ? 10 + (this.list.length - 1) * 2 : 10;
         this.tax = this.itemTotal * 0.06;
         this.orderTotal = this.itemTotal + this.shipping + this.tax;
 
+<<<<<<< HEAD
         const htmlElement = `<h2>Order Summary</h2>
+=======
+      const htmlElement = `<h2>Order Summary</h2>
+>>>>>>> dc51288f7ee4bceadc3759aceeb8001b037a7077
             <div id="subtotal">Subtotal: $${this.itemTotal.toFixed(2)}</div>
             <div id="shipping-estimate">Shipping Estimate: $${this.shipping.toFixed(2)}</div>
             <div id="tax">Tax: $${this.tax.toFixed(2)}</div>
             <div id="order-total">Order Total: $${this.orderTotal.toFixed(2)}</div>`
 
+<<<<<<< HEAD
         // display the totals.
         this.displayOrderTotals(htmlElement);
     }
 
     displayOrderTotals(element) {
         // once the totals are all calculated display them in the order summary page
+=======
+      // display the totals.
+      this.displayOrderTotals(htmlElement);
+    }
+  
+    displayOrderTotals(element) {
+      // once the totals are all calculated display them in the order summary page
+        document.querySelector(this.outputSelector).innerHTML = "";
+>>>>>>> dc51288f7ee4bceadc3759aceeb8001b037a7077
         document.querySelector(this.outputSelector).innerHTML = element;
     }
 
@@ -84,6 +142,7 @@ export default class CheckoutProcess {
             expiration: form.target[7].value,
             code: form.target[8].value,
             items: packageItems(this.list),
+<<<<<<< HEAD
             orderTotal: this.orderTotal.toFixed(2),
             shipping: this.shipping.toFixed(2),
             tax: this.tax.toFixed(2)
@@ -105,11 +164,32 @@ export default class CheckoutProcess {
             for (let message in error.message) {
                 alertMessage(error.message[message]);
             }
+=======
+            orderTotal: this.orderTotal,
+            shipping: this.shipping,
+            tax: this.tax
+        }
+        // call the checkout method in our ExternalServices module and send it our data object.
+        console.log(dataForm)
+
+        try{
+            const response = await externalServices.checkout (dataForm);
+            console.log(response)
+            if (response.message == "Order Placed") {
+                console.log("success")
+            }
+        } catch (error) {
+            console.log(error)
+>>>>>>> dc51288f7ee4bceadc3759aceeb8001b037a7077
         }
     }
 }
 
+<<<<<<< HEAD
 // takes the items currently stored in the cart (localstorage) and returns them in a simplified form.
+=======
+  // takes the items currently stored in the cart (localstorage) and returns them in a simplified form.
+>>>>>>> dc51288f7ee4bceadc3759aceeb8001b037a7077
 function packageItems(items) {
     // convert the list of products from localStorage to the simpler form required for the checkout process. Array.map would be perfect for this.
     return items.map(item => ({

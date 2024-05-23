@@ -10,6 +10,10 @@ async function convertToJson(res) {
   }
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> dc51288f7ee4bceadc3759aceeb8001b037a7077
 export default class ExternalServices {
   constructor(category) {
     /* this.category = category;
@@ -18,7 +22,11 @@ export default class ExternalServices {
   async getData(category) {
     const response = await fetch(baseURL + `products/search/${category}`);
     const data = await convertToJson(response);
+<<<<<<< HEAD
     //console.info(data)
+=======
+    console.info(data)
+>>>>>>> dc51288f7ee4bceadc3759aceeb8001b037a7077
     return data.Result;
   }
 
@@ -26,12 +34,17 @@ export default class ExternalServices {
     this.getData("tents");
 
     const response = await fetch(baseURL + `product/${id}`);
+<<<<<<< HEAD
     //console.log(response)
+=======
+    //console.table(response)
+>>>>>>> dc51288f7ee4bceadc3759aceeb8001b037a7077
     const data = await convertToJson(response);
     //console.table(data)
     return data.Result;
   }
 
+<<<<<<< HEAD
   async findProductByIds(ids) {
     const responseBackpacks = await fetch(baseURL + `products/search/backpacks`);
     const responseSleepingBags = await fetch(baseURL + `products/search/sleeping-bags`);
@@ -78,6 +91,21 @@ export default class ExternalServices {
         return fetch(baseURL + "checkout/", options).then(convertToJson);
     } catch (error) {
         console.error('Error during checkout:', error);
+=======
+  async checkout (formObject) { 
+    const options = {
+      method: "POST",
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formObject)
+    };
+
+    try{
+      return fetch(baseURL + "checkout/", options).then(convertToJson);
+    } catch (error) {
+      console.error("erroe during checkout:", error);
+>>>>>>> dc51288f7ee4bceadc3759aceeb8001b037a7077
     }
   }
 }

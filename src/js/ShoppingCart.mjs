@@ -79,7 +79,11 @@ export default class ShoppingCart {
       document.querySelector(".cart-total").innerHTML += total;
     }
     hideElement(".cart-total");
+<<<<<<< HEAD
     hideElement(".checkout-button");
+=======
+    hideElement(".checkout-button")
+>>>>>>> dc51288f7ee4bceadc3759aceeb8001b037a7077
   }
 
   readableData(items) {
@@ -94,6 +98,7 @@ export default class ShoppingCart {
     const cartItems = this.readableData(getLocalStorage(this.key));
 
     if (cartHasItems(this.key) && cartItems.length > 0) {
+
       for (let i = 0; i < cartItems.length; i++) {
         const htmlItems = cartItemTemplate(cartItems[i]);
         document.querySelector(this.parentSelector).innerHTML += htmlItems;
